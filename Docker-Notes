@@ -1,0 +1,81 @@
+Dockerfile ---> Docker Image ---> Docker Container 	
+
+Docker Basic Commands
+
+	
+	docker run -t -i ubuntu:latest //bin/bash  - interactive container
+	docker ps                                 - docker display all container running
+	docker ps -a                              - docker displays all containers.
+	docker images                             - shows local images available
+	docker build -t <imagename> .             - Build an image from 'Dockerfile
+	docker build -t <username>/<respository:tag> . - Build an image from "Dockerfile" default. -f option for specifing the file name
+	docker run -d 								- Background running a container / detach mode
+	docker logs <container id>
+	docker stop <container name>			  - To stop a running container
+	docker exec -it <containerIdOrName> bash   -> To connect to running container bash prompt.7
+	
+	docker run -d -P tomcat:7                - default tomcat process run, in detach mode, and also port is mapped. 
+	
+	
+# Delete all containers
+docker rm $(docker ps -a -q)
+# Delete all images
+docker rmi $(docker images -q)
+	
+	For Windows: 
+	docker-machine ls                         - Ip Address for docker linux vm
+	
+	ctrl P + Q                                - exit container without stopping. 
+	
+	
+Advanced Commands
+	docker commit <options> <container ID> <repository:tag>
+	docker commit <container ID> <username>/<repository:tag>
+	
+---------------------------	
+	Dockerfile Commands Overview
+Add
+
+Copy a file from the host into the container
+
+CMD
+
+Set default commands to be executed, or passed to the ENTRYPOINT
+
+ENTRYPOINT
+
+Set the default entrypoint application inside the container
+
+ENV
+
+Set environment variable (e.g. "key = value")
+
+EXPOSE
+
+Expose a port to outside
+
+FROM
+
+Set the base image to use
+
+MAINTAINER
+
+Set the author / owner data of the Dockerfile
+
+RUN
+
+Run a command and commit the ending result (container) image
+
+USER
+
+Set the user to run the containers from the image
+
+VOLUME
+
+Mount a directory from the host to the container
+
+WORKDIR
+
+Set the directory for the directives of CMD to be executed
+
+---------------------------------------------------------------------
