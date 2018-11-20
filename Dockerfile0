@@ -1,0 +1,4 @@
+FROM ubuntu:latest
+RUN apt-get update
+RUN echo hello from my ubuntu docker file
+RUN cd home/ && mkdir hello && touch hi.txt
